@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const { getUser, logout } = useAuthStore()
-await getUser()
+const { logout } = useAuthStore()
 </script>
 
 <template>

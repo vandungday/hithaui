@@ -36,5 +36,22 @@ export const useAuthStore = defineStore('auth', () => {
 
   const isAuthenticated = computed(() => !!user.value || accessToken.value)
 
-  return { login, getUser, logout, user, isAuthenticated, accessToken }
+  const userRoles = computed(() => {
+    return user.value?.rolesOnUsers.map(({ roleId }) => roleId) || []
+  })
+
+  watchEffect(async () => {
+    if (accessToken.value)
+      await getUser()
+  })
+
+  return {
+    login,
+    getUser,
+    logout,
+    user,
+    isAuthenticated,
+    accessToken,
+    userRoles,
+  }
 })

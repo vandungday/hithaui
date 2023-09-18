@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Page } from '~/types'
+
 const currentRoute = useRoute()
 
 function isActiveRoute(routePath: string) {
@@ -14,6 +16,7 @@ const { dashboardRoutes, devRoutes } = useRoutes()
       <ul class="menu">
         <li v-for="route in dashboardRoutes" :key="route.path" class="menu-item">
           <NuxtLink
+            v-if="usePermission(route.path as Page).isAccessible"
             :to="route.path"
             class="link"
             :class="{ '-active': isActiveRoute(route.path) }"
@@ -32,25 +35,14 @@ const { dashboardRoutes, devRoutes } = useRoutes()
         </li>
       </ul>
     </div>
-    <div
-      class="settings"
-    >
-      <a
-        href="#"
-        class="item"
-      >
+    <div class="settings">
+      <a href="#" class="item">
         <Icon name="uil:brightness" class="icon" />
       </a>
-      <a
-        href="#"
-        class="item"
-      >
+      <a href="#" class="item">
         <Icon name="uil:setting" class="icon" />
       </a>
-      <a
-        href="#"
-        class="item"
-      >
+      <a href="#" class="item">
         <Icon name="uil:language" class="icon" />
       </a>
     </div>
@@ -94,11 +86,11 @@ const { dashboardRoutes, devRoutes } = useRoutes()
   }
 
   > .settings > .item {
-    @apply inline-flex justify-center p-2 rounded text-primary-500 cursor-pointer hover:bg-gray-100
+    @apply inline-flex justify-center p-2 rounded text-primary-500 cursor-pointer hover:bg-gray-100;
   }
 
   > .settings > .item > .icon {
-    @apply h-6 w-6
+    @apply h-6 w-6;
   }
 }
 </style>

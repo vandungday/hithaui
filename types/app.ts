@@ -1,3 +1,5 @@
+import type { RoleType } from '~/types'
+
 export interface AppSpeedDialItem {
   id: number
   label: string
@@ -26,4 +28,20 @@ export interface ApplicationForm {
   coverImage: string
   description: string
   isActive: boolean
+}
+
+export enum Page {
+  Dashboard = '/dashboard',
+  ClassManagement = '/dashboard/classes',
+  UserManagement = '/dashboard/users',
+  EventManagement = '/dashboard/events',
+  DocumentManagement = '/dashboard/documents',
+  Contributors = '/contributors',
+  Login = '/login',
+  Profile = '/profile',
+  Home = '/',
+}
+
+export type PagePermission = {
+  [key in Page]: RoleType[];
 }
