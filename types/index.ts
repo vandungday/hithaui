@@ -1,6 +1,6 @@
+export * from './notifications'
 export * from './users'
 export * from './auth'
-export * from './courses'
 export * from './events'
 export * from './roles'
 export * from './app'

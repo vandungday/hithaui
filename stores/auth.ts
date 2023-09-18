@@ -1,3 +1,5 @@
+import type { LoginResponse, User, UserCredentials } from '~/types'
+
 export const useAuthStore = defineStore('auth', () => {
   const { $api } = useNuxtApp()
 

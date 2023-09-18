@@ -15,6 +15,7 @@ export interface User {
   phone?: string
   class?: string
   address?: string
+  rolesOnUsers: RoleOnUser[]
 }
 
 export interface Contributor {
@@ -36,3 +37,8 @@ export type UserGeneralInfoForm = Partial<
     'linkedIn'
   >
 >
+
+export interface RoleOnUser {
+  roleId: number
+  userId: number
+}

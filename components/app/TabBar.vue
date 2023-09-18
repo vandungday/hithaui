@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AppTabBarItem } from '~/types'
+
 defineProps<{
   tabs: AppTabBarItem[]
 }>()

@@ -1,3 +1,5 @@
+import type { User, UserGeneralInfoForm } from '~/types'
+
 export const useUsersStore = defineStore('users', () => {
   const { $api } = useNuxtApp()
   const users = ref<User[]>([])

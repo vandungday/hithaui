@@ -14,22 +14,6 @@ export interface AppTabBarItem {
   icon: string
 }
 
-export interface FormQuestion {
-  id: number
-  name: string
-  description?: string | null
-  required: boolean
-  field: string
-}
-
-export interface ApplicationForm {
-  id: number
-  title: string
-  coverImage: string
-  description: string
-  isActive: boolean
-}
-
 export enum Page {
   Dashboard = '/dashboard',
   ClassManagement = '/dashboard/classes',

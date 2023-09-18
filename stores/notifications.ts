@@ -1,3 +1,5 @@
+import type { CreateNotificationData, Notification } from '~/types'
+
 export const useNotificationStore = defineStore('notifications', () => {
   const notifications = ref<Notification[]>([])
 

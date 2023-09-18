@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { UserGeneralInfoForm } from '~/types'
+
 const authStore = useAuthStore()
 const usersStore = useUsersStore()
 const { user } = storeToRefs(authStore)

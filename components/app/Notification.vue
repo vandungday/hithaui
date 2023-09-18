@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Notification } from '~/types'
 import {
   NOTIFICATION_ICON,
   NOTIFICATION_TIMEOUT,

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AppSpeedDialItem } from '~/types'
+
 defineProps<{
   actions: AppSpeedDialItem[]
 }>()
