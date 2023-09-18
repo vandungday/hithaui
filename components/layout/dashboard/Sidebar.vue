@@ -1,71 +1,18 @@
 <script setup lang="ts">
 const currentRoute = useRoute()
-const { public: { apiBaseUrl } } = useRuntimeConfig()
 
 function isActiveRoute(routePath: string) {
   return currentRoute.path === routePath
 }
 
-const routes = computed(() => [
-  {
-    path: '/dashboard',
-    label: 'Dashboard',
-    icon: 'uil:create-dashboard',
-  },
-  {
-    path: '/users',
-    label: 'Users',
-    icon: 'uil:users-alt',
-  },
-  {
-    path: '/documents',
-    label: 'Documents',
-    icon: 'uil:document-info',
-  },
-  {
-    path: '/events',
-    label: 'Events',
-    icon: 'uil:caret-right',
-  },
-  {
-    path: '/classes',
-    label: 'Classes',
-    icon: 'uil:book-medical',
-  },
-])
-
-const devRoutes = computed(() => [
-  {
-    path: `${apiBaseUrl}/docs-api`,
-    label: 'Docs API',
-    icon: 'logos:swagger',
-    target: '_blank',
-  },
-  {
-    path: 'https://github.com/hit-haui/hithaui',
-    label: 'Frontend Repository',
-    icon: 'logos:nuxt-icon',
-    target: '_blank',
-  },
-  {
-    path: 'https://github.com/hit-haui/hithaui-api',
-    label: 'Backend Repository',
-    icon: 'logos:nestjs',
-    target: '_blank',
-  },
-  {
-    path: '/contributors',
-    label: 'Contributors',
-    icon: 'logos:dev-icon',
-  },
-])
+const { dashboardRoutes, devRoutes } = useRoutes()
 </script>
 
 <template>
   <aside class="sidebar">
     <div class="content">
       <ul class="menu">
-        <li v-for="route in routes" :key="route.path" class="menu-item">
+        <li v-for="route in dashboardRoutes" :key="route.path" class="menu-item">
           <NuxtLink
             :to="route.path"
             class="link"

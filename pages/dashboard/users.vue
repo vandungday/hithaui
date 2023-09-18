@@ -5,11 +5,6 @@ import {
   GENERATIONS,
 } from '~/constants/generations'
 
-definePageMeta({
-  middleware: 'auth',
-  layout: 'dashboard',
-})
-
 const usersStore = useUsersStore()
 const { filterUsersByGeneration } = usersStore
 const { users } = storeToRefs(usersStore)
