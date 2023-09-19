@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { FormQuestion } from '~/types'
+import type { Question } from '~/types'
 
 withDefaults(
   defineProps<{
-    question: FormQuestion
+    question: Question
     error?: string
     modelValue?: number[]
   }>(),
@@ -51,17 +51,15 @@ function handleSelectOption(option: number) {
 </template>
 
 <style lang="scss" scoped>
-.form-question.--multiple-choice {
-  > .answer-options {
-    @apply flex items-center mb-4;
+.answer-options {
+  @apply flex items-center mb-4;
 
-    > .input {
-      @apply w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded;
-    }
+  > .input {
+    @apply w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded;
+  }
 
-    > .label {
-      @apply ml-2 text-sm font-medium;
-    }
+  > .label {
+    @apply ml-2 text-sm font-medium;
   }
 }
 </style>

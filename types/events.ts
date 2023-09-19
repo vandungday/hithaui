@@ -1,8 +1,7 @@
 export interface Event {
   id: number
   name: string
-  description?: string
-  coverImage?: string | File
+  category: string
   createdAt: string
   updatedAt: string
 }
