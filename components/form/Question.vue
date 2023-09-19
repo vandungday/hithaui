@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { FormQuestion } from '~/types'
+import type { Question } from '~/types'
 
 withDefaults(
   defineProps<{
-    question: FormQuestion
+    question: Question
     error?: string
   }>(),
   {
@@ -43,7 +43,7 @@ withDefaults(
   }
 
   > .description {
-    @apply text-gray-500 text-sm;
+    @apply text-gray-500 text-sm pt-2;
   }
 
   > .error {

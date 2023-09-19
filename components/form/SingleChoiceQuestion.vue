@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { FormQuestion } from '~/types'
+import type { Question } from '~/types'
 
 withDefaults(
   defineProps<{
-    question: FormQuestion
+    question: Question
     modelValue?: string | number
     error?: string
   }>(),
@@ -30,32 +30,29 @@ defineEmits<{
       class="answer-options"
     >
       <input
-        :id="option.id"
-        :key="option.value"
+        :id="`${option.id}${option.name}`"
         :value="option.name"
         :checked="modelValue === option.id"
         :name="question.field"
         type="radio"
-        class="input"
+        class="input --radio"
         @change="$emit('update:modelValue', option.id)"
       >
-      <label :for="option.id" class="label">{{ option.name }}</label>
+      <label :for="`${option.id}${option.name}`" class="label">{{ option.name }}</label>
     </div>
   </FormQuestion>
 </template>
 
 <style lang="scss" scoped>
-.form-question.-single-choice {
-  > .answer-options {
-    @apply flex items-center mb-2;
+.answer-options {
+  @apply flex items-center mb-2;
 
-    > .input {
-      @apply w-4 h-4 text-primary-500 bg-gray-100 border-gray-300 focus:ring-primary-500;
-    }
+  > .input {
+    @apply w-4 h-4 text-primary-500 bg-gray-100 border-gray-300 focus:ring-primary-500;
+  }
 
-    > .label {
-      @apply ml-2 text-sm font-medium text-gray-900;
-    }
+  > .label {
+    @apply ml-2 text-sm font-medium text-gray-900;
   }
 }
 </style>

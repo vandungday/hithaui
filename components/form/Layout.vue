@@ -37,11 +37,11 @@ defineEmits<{
   }
 
   > .name {
-    @apply text-3xl font-semibold mt-8 max-md:px-8 max-md:text-2xl;
+    @apply text-3xl font-semibold mt-8 max-md:text-2xl;
   }
 
   > .question-list {
-    @apply py-4 flex flex-col gap-4 max-md:px-8;
+    @apply py-4 flex flex-col gap-4;
   }
 
   > .form-action {
