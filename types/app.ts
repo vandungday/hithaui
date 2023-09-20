@@ -20,6 +20,7 @@ export enum Page {
   UserManagement = '/dashboard/users',
   EventManagement = '/dashboard/events',
   DocumentManagement = '/dashboard/documents',
+  FormManagement = '/dashboard/forms',
   Contributors = '/contributors',
   Login = '/login',
   Profile = '/profile',
@@ -27,7 +28,7 @@ export enum Page {
 }
 
 export type PagePermission = {
-  [key in Page]: RoleType[];
+  [key in Page]?: RoleType[];
 }
 
 export interface AppDialogConfirm {
