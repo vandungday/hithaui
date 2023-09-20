@@ -29,6 +29,11 @@ export function useRoutes() {
       label: 'Classes',
       icon: 'uil:book-medical',
     },
+    {
+      path: '/dashboard/forms',
+      label: 'Forms',
+      icon: 'uil:file-edit-alt',
+    },
   ]
 
   const devRoutes = [

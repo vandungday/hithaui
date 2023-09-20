@@ -39,6 +39,6 @@ export type UserGeneralInfoForm = Partial<
 >
 
 export interface RoleOnUser {
-  roleId: number
   userId: number
+  roleId: number
 }

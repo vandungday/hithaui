@@ -16,7 +16,7 @@ const { dashboardRoutes, devRoutes } = useRoutes()
       <ul class="menu">
         <li v-for="route in dashboardRoutes" :key="route.path" class="menu-item">
           <NuxtLink
-            v-if="usePermission(route.path as Page).isAccessible"
+            v-if="usePermission(route.path as Page).isAccessible.value"
             :to="route.path"
             class="link"
             :class="{ '-active': isActiveRoute(route.path) }"

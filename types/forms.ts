@@ -19,14 +19,14 @@ export interface Form {
   id: number
   name: string
   isActive: boolean
-  coverImage: string
+  coverImage: string | null | File
   createdAt: string
   updatedAt: string
   eventId: number
+  event: Pick<Event, 'name' | 'category'>
 }
 
 export interface FormDetails extends Form {
-  event: Pick<Event, 'name' | 'category'>
   questions: Question[]
 }
 

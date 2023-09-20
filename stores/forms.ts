@@ -1,9 +1,23 @@
-import type { FormDetails } from '~/types'
+import type { Form, FormDetails } from '~/types'
 
 export const useFormsStore = defineStore('forms', () => {
   const { $api } = useNuxtApp()
 
+  const forms = ref<Form[]>([])
   const form = ref<FormDetails>()
+
+  const authStore = useAuthStore()
+  const { accessToken } = storeToRefs(authStore)
+
+  const fetchForms = async () => {
+    const response = await $api<Form[]>('/api/v1/forms', {
+      headers: {
+        Authorization: `Bearer ${accessToken.value}`,
+      },
+    })
+
+    forms.value = response
+  }
 
   const fetchForm = async (formId: number) => {
     try {
@@ -15,5 +29,5 @@ export const useFormsStore = defineStore('forms', () => {
     }
   }
 
-  return { form, fetchForm }
+  return { fetchForms, fetchForm, forms, form }
 })
