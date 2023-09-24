@@ -1,4 +1,4 @@
-import type { Form, FormDetails } from '~/types'
+import type { Form, FormDetails, CreateForm } from '~/types'
 
 export const useFormsStore = defineStore('forms', () => {
   const { $api } = useNuxtApp()
@@ -29,5 +29,17 @@ export const useFormsStore = defineStore('forms', () => {
     }
   }
 
-  return { fetchForms, fetchForm, forms, form }
+  const createForm = async (form: FormData) => {
+      const response = await $api<Form>('/api/v1/forms', {
+          method: 'POST',
+          body: form,
+          headers: {
+              Authorization: `Bearer ${accessToken.value}`,
+          },
+      })
+
+      return response
+  }
+
+  return { fetchForms, fetchForm, createForm, forms, form }
 })

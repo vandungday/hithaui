@@ -6,9 +6,36 @@ definePageMeta({
 const formsStore = useFormsStore()
 const { forms } = storeToRefs(formsStore)
 
+const appDrawer = ref()
+const formAction = [
+  {
+    id: 1,
+    label: 'Create',
+    icon: 'uil:plus',
+    events: {
+      click: () => {
+        toggleDrawer()
+      },
+    },
+  }
+]
+
+async function fetchForms() {
+  return formsStore.fetchForms()
+}
+
 onMounted(async () => {
-  await formsStore.fetchForms()
+  await fetchForms()
 })
+
+function toggleDrawer() {
+  return appDrawer.value.openModal()
+}
+
+function closeDrawer() {
+  return appDrawer.value.closeModal()
+}
+
 </script>
 
 <template>
@@ -26,6 +53,10 @@ onMounted(async () => {
         <span class="value">{{ forms.length }}</span>
       </p>
     </footer>
+    <AppSpeedDial :actions="formAction" />
+    <AppDrawer title="New form" ref="appDrawer">
+          <FormCreate @create-form="fetchForms" @close-form-drawer="closeDrawer"/>
+    </AppDrawer>
   </div>
 </template>
 

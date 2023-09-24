@@ -33,3 +33,5 @@ export interface FormDetails extends Form {
 export interface FormAnswer {
   [key: string]: string | number[]
 }
+
+export type CreateForm = Pick<Form, 'name' | 'eventId' | 'coverImage'> 
