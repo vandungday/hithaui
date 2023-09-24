@@ -30,3 +30,9 @@ export enum Page {
 export type PagePermission = {
   [key in Page]?: RoleType[];
 }
+
+export interface AppDialogConfirm {
+  message: string
+  confirmationText?: string
+  cancellationText?: string
+}
